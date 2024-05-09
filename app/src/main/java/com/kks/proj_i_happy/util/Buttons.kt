@@ -21,7 +21,8 @@ fun HorizonWideButton(
     colors: List<Color>,
     text: String,
     border: Boolean,
-    clickEvent: () -> Unit
+    modifier: Modifier = Modifier,
+    clickEvent: () -> Unit,
 ) {
     val screenWidth = LocalConfiguration.current.screenWidthDp
     val mainContentWidth = (screenWidth / 1.3).dp

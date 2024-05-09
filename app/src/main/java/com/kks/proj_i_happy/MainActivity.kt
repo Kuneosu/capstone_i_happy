@@ -8,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.kks.proj_i_happy.ui.screens.LoginScreen
+import com.kks.proj_i_happy.ui.screens.SignupScreen
 import com.kks.proj_i_happy.ui.screens.WelcomeScreen
 import com.kks.proj_i_happy.ui.theme.Proj_i_happyTheme
 
@@ -34,6 +35,9 @@ fun MainNavHost() {
         }
         composable(route = "login_screen") {
             LoginScreen()
+        }
+        composable(route = "signup_screen") {
+            SignupScreen()
         }
     }
 }
