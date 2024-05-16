@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -51,10 +52,14 @@ fun WelcomeScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.size(60.dp))
 
+        val screenWidth = LocalConfiguration.current.screenWidthDp
+        val mainContentWidth = (screenWidth / 1.3).dp
+
         HorizonWideButton(
             colors = listOf(Color.Red, Color.White),
             text = "로그인",
-            border = false
+            border = false,
+            modifier = Modifier.width(mainContentWidth)
         ) {
             navController.navigate("login_screen")
         }
@@ -64,7 +69,8 @@ fun WelcomeScreen(navController: NavController) {
         HorizonWideButton(
             colors = listOf(Color.White, Color.Red),
             text = "회원가입",
-            border = true
+            border = true,
+            modifier = Modifier.width(mainContentWidth)
         ) {
             navController.navigate("signup_screen")
         }
@@ -93,5 +99,50 @@ fun SubText() {
 @Composable
 @Preview
 fun PreviewWelcome() {
-//    WelcomeScreen()
+    Column(
+        Modifier
+            .fillMaxSize()
+            .background(Color.White),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.applogo),
+            contentDescription = "Welcome Image",
+            modifier = Modifier
+                .size((LocalConfiguration.current.screenWidthDp / 1.3).dp)
+                .clip(shape = RoundedCornerShape(10.dp)),
+        )
+
+        Spacer(modifier = Modifier.size(60.dp))
+
+        AppLogoText()
+
+        SubText()
+
+        Spacer(modifier = Modifier.size(60.dp))
+
+        val screenWidth = LocalConfiguration.current.screenWidthDp
+        val mainContentWidth = (screenWidth / 1.3).dp
+
+        HorizonWideButton(
+            colors = listOf(Color.Red, Color.White),
+            text = "로그인",
+            border = false,
+            modifier = Modifier.width(mainContentWidth)
+        ) {
+
+        }
+
+        Spacer(modifier = Modifier.size(20.dp))
+
+        HorizonWideButton(
+            colors = listOf(Color.White, Color.Red),
+            text = "회원가입",
+            border = true,
+            modifier = Modifier.width(mainContentWidth)
+        ) {
+
+        }
+    }
 }

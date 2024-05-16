@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.kks.proj_i_happy.ui.screens.HomeScreen
 import com.kks.proj_i_happy.ui.screens.LoginScreen
 import com.kks.proj_i_happy.ui.screens.SignupScreen
 import com.kks.proj_i_happy.ui.screens.WelcomeScreen
@@ -34,10 +35,13 @@ fun MainNavHost() {
             WelcomeScreen(navController)
         }
         composable(route = "login_screen") {
-            LoginScreen()
+            LoginScreen(navController)
         }
         composable(route = "signup_screen") {
-            SignupScreen()
+            SignupScreen(navController)
+        }
+        composable(route = "home_screen") {
+            HomeScreen()
         }
     }
 }
