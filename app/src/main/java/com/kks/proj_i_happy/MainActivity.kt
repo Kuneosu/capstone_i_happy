@@ -1,19 +1,26 @@
 package com.kks.proj_i_happy
 
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.kks.proj_i_happy.ui.screens.CalendarScreen
+import com.kks.proj_i_happy.ui.screens.ChatScreen
 import com.kks.proj_i_happy.ui.screens.HomeScreen
 import com.kks.proj_i_happy.ui.screens.LoginScreen
+import com.kks.proj_i_happy.ui.screens.SearchScreen
+import com.kks.proj_i_happy.ui.screens.SettingScreen
 import com.kks.proj_i_happy.ui.screens.SignupScreen
 import com.kks.proj_i_happy.ui.screens.WelcomeScreen
 import com.kks.proj_i_happy.ui.theme.Proj_i_happyTheme
 
 class MainActivity : ComponentActivity() {
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -24,6 +31,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun MainNavHost() {
     val navController = rememberNavController()
@@ -41,7 +49,19 @@ fun MainNavHost() {
             SignupScreen(navController)
         }
         composable(route = "home_screen") {
-            HomeScreen()
+            HomeScreen(navController)
+        }
+        composable(route = "chat_screen") {
+            ChatScreen(navController)
+        }
+        composable(route = "calendar_screen") {
+             CalendarScreen(navController)
+        }
+        composable(route = "search_screen") {
+             SearchScreen(navController)
+        }
+        composable(route = "setting_screen") {
+             SettingScreen(navController)
         }
     }
 }

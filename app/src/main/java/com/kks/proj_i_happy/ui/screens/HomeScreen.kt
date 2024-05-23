@@ -18,13 +18,10 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -36,54 +33,51 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.kks.proj_i_happy.R
+import com.kks.proj_i_happy.util.DefaultScreen
 import com.kks.proj_i_happy.util.doDayOfWeek
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun HomeScreen() {
-    Scaffold(
-        bottomBar = {
-            CustomBottomAppBar()
-        }
-    ) {
-        Surface(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(it)
-        ) {
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(vertical = 40.dp, horizontal = 20.dp)
-            ) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(50.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    HomeDateText()
-                    PersonalInfo()
-                }
-                Spacer(modifier = Modifier.size(4.dp))
-                Weather()
-                Spacer(modifier = Modifier.size(10.dp))
-                EventCard()
-                Spacer(modifier = Modifier.size(20.dp))
-                Text(
-                    text = "무엇이 필요하신가요 ?",
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.Bold
-                )
-                Spacer(modifier = Modifier.size(10.dp))
-                MenuCards()
-            }
+fun HomeScreen(navController: NavController) {
+    DefaultScreen(navController) {
+        HomeBody()
+    }
+}
 
+@RequiresApi(Build.VERSION_CODES.O)
+@Composable
+fun HomeBody(){
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(vertical = 40.dp, horizontal = 20.dp)
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(50.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            HomeDateText()
+            PersonalInfo()
         }
+        Spacer(modifier = Modifier.size(4.dp))
+        Weather()
+        Spacer(modifier = Modifier.size(10.dp))
+        EventCard()
+        Spacer(modifier = Modifier.size(20.dp))
+        Text(
+            text = "무엇이 필요하신가요 ?",
+            fontSize = 18.sp,
+            fontWeight = FontWeight.Bold
+        )
+        Spacer(modifier = Modifier.size(10.dp))
+        MenuCards()
     }
 }
 
@@ -281,34 +275,11 @@ fun HomeDateText() {
 
 }
 
-@Composable
-fun CustomBottomAppBar() {
-    BottomAppBar(
-        containerColor = Color.White,
-        modifier = Modifier.border(1.dp, Color.LightGray)
-    ) {
-        BottomAppBarIcon(imageId = R.drawable.calendar)
-        BottomAppBarIcon(imageId = R.drawable.chat)
-        BottomAppBarIcon(imageId = R.drawable.home)
-        BottomAppBarIcon(imageId = R.drawable.search)
-        BottomAppBarIcon(imageId = R.drawable.setting)
-    }
-}
 
-@Composable
-fun BottomAppBarIcon(imageId: Int, description: String? = null) {
-    Image(
-        painter = painterResource(id = imageId),
-        contentDescription = description,
-        modifier = Modifier
-            .fillMaxHeight()
-            .padding(18.dp)
-    )
-}
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
 @Preview
 fun HomePreview() {
-    HomeScreen()
+//    HomeScreen()
 }
