@@ -43,8 +43,8 @@ fun CustomBottomAppBar(navController: NavController) {
         containerColor = Color.White,
         modifier = Modifier.border(1.dp, Color.LightGray)
     ) {
-        BottomAppBarIcon(imageId = R.drawable.calendar, description = "calendar") {
-            navController.navigate("calendar_screen")
+        BottomAppBarIcon(imageId = R.drawable.tips, description = "news") {
+            navController.navigate("news_screen")
         }
         BottomAppBarIcon(imageId = R.drawable.chat) {
             navController.navigate("chat_screen")

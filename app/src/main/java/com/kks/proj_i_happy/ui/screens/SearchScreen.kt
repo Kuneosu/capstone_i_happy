@@ -57,7 +57,8 @@ fun SearchBody() {
     Column(
         modifier = Modifier
             .padding(16.dp)
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .background(Color.White),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         // 검색 바

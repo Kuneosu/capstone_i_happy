@@ -9,10 +9,10 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.kks.proj_i_happy.ui.screens.CalendarScreen
 import com.kks.proj_i_happy.ui.screens.ChatScreen
 import com.kks.proj_i_happy.ui.screens.HomeScreen
 import com.kks.proj_i_happy.ui.screens.LoginScreen
+import com.kks.proj_i_happy.ui.screens.NewsScreen
 import com.kks.proj_i_happy.ui.screens.SearchScreen
 import com.kks.proj_i_happy.ui.screens.SettingScreen
 import com.kks.proj_i_happy.ui.screens.SignupScreen
@@ -54,14 +54,14 @@ fun MainNavHost() {
         composable(route = "chat_screen") {
             ChatScreen(navController)
         }
-        composable(route = "calendar_screen") {
-             CalendarScreen(navController)
+        composable(route = "news_screen") {
+            NewsScreen(navController)
         }
         composable(route = "search_screen") {
-             SearchScreen(navController)
+            SearchScreen(navController)
         }
         composable(route = "setting_screen") {
-             SettingScreen(navController)
+            SettingScreen(navController)
         }
     }
 }

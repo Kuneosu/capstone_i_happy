@@ -3,6 +3,7 @@ package com.kks.proj_i_happy.ui.screens
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -55,6 +56,7 @@ fun HomeBody(){
         modifier = Modifier
             .fillMaxSize()
             .padding(vertical = 40.dp, horizontal = 20.dp)
+            .background(Color.White)
     ) {
         Row(
             modifier = Modifier
